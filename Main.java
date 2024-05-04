@@ -1,12 +1,14 @@
 /*
 comandos de compilacion en CMD
-javac -d ./classes ./source/*.java
-java -cp ./classes Main
+javac -cp C:/Users/fabia/Downloads/gson-2.10.1.jar -d ./classes ./source/*.java
+java -cp ./classes;C:/Users/fabia/Downloads/gson-2.10.1.jar Main
 */
+import java.lang.InterruptedException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String [] args) {
+	public static void main(String [] args) throws IOException, InterruptedException {
 		String separador = "**********************************************";
 		System.out.println(separador);
 		System.out.println("Sea Bienvenido/a al Conversor de Monedas c:");
@@ -26,5 +28,8 @@ public class Main {
 		
 		System.out.println("Ingresa el valor que deseas convertir:");
 		int efectivo = teclado.nextInt();
+
+		Conversion conversion = new Conversion(efectivo);
+		System.out.println(conversion.realizarConversion("USD", "MXN"));
 	}
 }
