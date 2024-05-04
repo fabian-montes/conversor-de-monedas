@@ -9,9 +9,14 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String [] args) throws IOException, InterruptedException {
+		System.out.println("Sea Bienvenido/a al Conversor de Monedas c:");
+		while(mostrarMenu() != -1);
+		System.out.println("Gracias por usar el conversor de monedas!");
+	}
+
+	public static int mostrarMenu() throws IOException, InterruptedException {
 		String separador = "**********************************************";
 		System.out.println(separador);
-		System.out.println("Sea Bienvenido/a al Conversor de Monedas c:");
 		System.out.println("");
 		System.out.println("1) Dolar => Peso Argentino");
 		System.out.println("2) Peso Argentino => Dolar");
@@ -47,9 +52,7 @@ public class Main {
 			conversion.setParametrosConversion("EUR", "USD");
 			break;
 		case 7:
-			System.out.println("Gracias por usar el conversor de monedas!");
-			System.exit(0);
-			break;
+			return -1;
 		default:
 			System.out.println("Error, opcion invalida");
 		}
@@ -58,5 +61,7 @@ public class Main {
 		int efectivo = teclado.nextInt();
 		conversion.setValor(efectivo);
 		System.out.println(conversion.realizarConversion());
+
+		return 1;
 	}
 }
